@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-export default function AppMinhaLink() {
+export default function AppMinhaNet7() {
   // Imagens do carrossel (substitua pelos prints reais do app quando tiver)
   const images: { src: string; alt: string }[] = [
     { src: "/screens/screen1.png", alt: "Tela do app 1" },

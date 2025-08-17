@@ -3,7 +3,7 @@ import { Suspense, lazy } from "react";
 const Home = lazy(() => import("@pages/Home"));
 const Planos = lazy(() => import("@pages/Planos"));
 const Suporte = lazy(() => import("@pages/Suporte"));
-const AppMinhaLink = lazy(() => import("@pages/AppMinhaLink"));
+const AppMinhaNet7 = lazy(() => import("@pages/AppMinhaNet7"));
 const IndiqueGanhe = lazy(() => import("@pages/IndiqueGanhe"));
 import Navbar from "@components/Navbar";
 import Footer from "@components/Footer";
@@ -22,7 +22,7 @@ export default function App() {
               <Route path="/" element={<Home />} />
               <Route path="/planos" element={<Planos />} />
               <Route path="/suporte" element={<Suporte />} />
-              <Route path="/minha-link" element={<AppMinhaLink />} />
+              <Route path="/minha-link" element={<AppMinhaNet7 />} />
               <Route path="/indique-ganhe" element={<IndiqueGanhe />} />
             </Routes>
           </Suspense>
