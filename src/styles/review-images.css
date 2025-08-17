@@ -1,0 +1,97 @@
+/* Estilos específicos para as imagens de review - evita flashing durante hover */
+
+.review-image-container {
+  @apply relative overflow-hidden;
+}
+
+.review-image-container::before {
+  content: "";
+  @apply absolute inset-0 bg-gradient-to-br from-gray-800/20 to-gray-900/20 opacity-0 transition-opacity duration-200 pointer-events-none z-10;
+}
+
+.review-image-container:hover::before {
+  @apply opacity-100;
+}
+
+.review-image {
+  @apply w-full h-64 object-cover bg-black/30 transition-all duration-300 select-none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
+.review-image:hover {
+  @apply transform scale-[1.01];
+}
+
+/* Previne qualquer seleção de texto que pode causar flashing */
+.review-card {
+  @apply select-none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Animações suaves para o container */
+.review-card-motion {
+  @apply transform-gpu will-change-transform;
+  transition: all 0.5s cubic-bezier(0.5, 0, 0.2, 1);
+}
+
+/* Melhora a transição entre imagens */
+.review-image-wrapper {
+  @apply relative w-full h-64;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+}
+
+.review-image-wrapper img {
+  @apply absolute inset-0 w-full h-full object-cover;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+}
+
+/* Estados de transição */
+.review-image-wrapper .image-current {
+  @apply opacity-100;
+}
+
+.review-image-wrapper .image-next {
+  @apply opacity-0;
+}
+
+.review-image-wrapper .image-transitioning {
+  @apply opacity-100;
+}
+
+/* Animação de loading suave */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.review-loading {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
