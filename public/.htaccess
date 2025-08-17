@@ -1,0 +1,13 @@
+# SPA rewrite rules for React Router on Apache (Hostinger/etc)
+# Prevent content negotiation issues
+Options -MultiViews
+
+RewriteEngine On
+
+# Serve existing files/directories normally
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Fallback all other routes to index.html
+RewriteRule ^ index.html [L]
