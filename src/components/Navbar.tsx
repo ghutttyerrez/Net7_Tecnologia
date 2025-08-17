@@ -62,10 +62,33 @@ export default function Navbar() {
             <NavLink to="/minha-link" className={linkClass}>
               Minha Net7
             </NavLink>
+            <NavLink to="/faq" className={linkClass}>
+              FAQ
+            </NavLink>
           </nav>
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-3">
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/net7tecnologia/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+              title="Instagram"
+              className="inline-flex h-9 w-9 items-center justify-center text-neutral-600 hover:text-neutral-900 dark:text-white/80 dark:hover:text-white transition-colors"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                className="h-5 w-5"
+                fill="currentColor"
+                aria-hidden
+              >
+                <path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.2 2.4.4.6.2 1 .4 1.5.9.5.5.7.9.9 1.5.2.5.3 1.2.4 2.4.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.9-.4 2.4-.2.6-.4 1-.9 1.5-.5.5-.9.7-1.5.9-.5.2-1.2.3-2.4.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.2-2.4-.4-.6-.2-1-.4-1.5-.9-.5-.5-.7-.9-.9-1.5-.2-.5-.3-1.2-.4-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.9.4-2.4.2-.6.4-1 .9-1.5.5-.5.9-.7 1.5-.9.5-.2 1.2-.3 2.4-.4C8.4 2.2 8.8 2.2 12 2.2m0-1.7C8.7.5 8.3.5 7 0 5.7.1 4.9.2 4.2.5c-.8.3-1.5.6-2.1 1.2C1.5 2.3 1.2 3 1 3.8c-.3.7-.4 1.5-.5 2.8C0 7.9 0 8.3 0 12s0 4.1.5 5.4c.1 1.3.2 2.1.5 2.8.3.8.6 1.5 1.2 2.1.6.6 1.3.9 2.1 1.2.7.3 1.5.4 2.8.5C8.3 24 8.7 24 12 24s3.7 0 5-.5c1.3-.1 2.1-.2 2.8-.5.8-.3 1.5-.6 2.1-1.2.6-.6.9-1.3 1.2-2.1.3-.7.4-1.5.5-2.8.5-1.3.5-1.7.5-5.4s0-4.1-.5-5.4c-.1-1.3-.2-2.1-.5-2.8-.3-.8-.6-1.5-1.2-2.1-.6-.6-1.3-.9-2.1-1.2-.7-.3-1.5-.4-2.8-.5C15.7.5 15.3.5 12 .5Z" />
+                <path d="M12 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8Zm0 10.3A4.1 4.1 0 1 1 16.1 12 4.1 4.1 0 0 1 12 16.1Z" />
+                <circle cx="18.4" cy="5.6" r="1.3" />
+              </svg>
+            </a>
             {/* Theme Toggle */}
             <ThemeToggle />
 
@@ -94,6 +117,26 @@ export default function Navbar() {
           {/* Mobile Menu Button & Theme Toggle */}
           <div className="md:hidden flex items-center gap-2">
             <ThemeToggle />
+            {/* Instagram */}
+            <a
+              href="https://instagram.com/SEU_PERFIL"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+              title="Instagram"
+              className="inline-flex h-9 w-9 items-center justify-center text-neutral-600 hover:text-neutral-900 dark:text-white/80 dark:hover:text-white transition-colors"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                className="h-5 w-5"
+                fill="currentColor"
+                aria-hidden
+              >
+                <path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.2 2.4.4.6.2 1 .4 1.5.9.5.5.7.9.9 1.5.2.5.3 1.2.4 2.4.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.9-.4 2.4-.2.6-.4 1-.9 1.5-.5.5-.9.7-1.5.9-.5.2-1.2.3-2.4.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.2-2.4-.4-.6-.2-1-.4-1.5-.9-.5-.5-.7-.9-.9-1.5-.2-.5-.3-1.2-.4-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.9.4-2.4.2-.6.4-1 .9-1.5.5-.5.9-.7 1.5-.9.5-.2 1.2-.3 2.4-.4C8.4 2.2 8.8 2.2 12 2.2m0-1.7C8.7.5 8.3.5 7 0 5.7.1 4.9.2 4.2.5c-.8.3-1.5.6-2.1 1.2C1.5 2.3 1.2 3 1 3.8c-.3.7-.4 1.5-.5 2.8C0 7.9 0 8.3 0 12s0 4.1.5 5.4c.1 1.3.2 2.1.5 2.8.3.8.6 1.5 1.2 2.1.6.6 1.3.9 2.1 1.2.7.3 1.5.4 2.8.5C8.3 24 8.7 24 12 24s3.7 0 5-.5c1.3-.1 2.1-.2 2.8-.5.8-.3 1.5-.6 2.1-1.2.6-.6.9-1.3 1.2-2.1.3-.7.4-1.5.5-2.8.5-1.3.5-1.7.5-5.4s0-4.1-.5-5.4c-.1-1.3-.2-2.1-.5-2.8-.3-.8-.6-1.5-1.2-2.1-.6-.6-1.3-.9-2.1-1.2-.7-.3-1.5-.4-2.8-.5C15.7.5 15.3.5 12 .5Z" />
+                <path d="M12 5.8A6.2 6.2 0 1 0 18.2 12 6.2 6.2 0 0 0 12 5.8Zm0 10.3A4.1 4.1 0 1 1 16.1 12 4.1 4.1 0 0 1 12 16.1Z" />
+                <circle cx="18.4" cy="5.6" r="1.3" />
+              </svg>
+            </a>
             <button
               className="p-2 rounded-md text-neutral-600 dark:text-white/80 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-white/10 transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -158,6 +201,13 @@ export default function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             >
               Minha Net7
+            </NavLink>
+            <NavLink
+              to="/faq"
+              className={mobileLinkClass}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              FAQ
             </NavLink>
             <NavLink
               to="/indique-ganhe"

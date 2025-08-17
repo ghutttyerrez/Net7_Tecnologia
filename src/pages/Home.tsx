@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import HeroParticles from "@components/HeroParticles";
@@ -22,6 +22,19 @@ export default function Home() {
   const [reviewsError, setReviewsError] = useState<string | null>(null);
   const [reviewTick, setReviewTick] = useState(0);
   const [reviewsPaused, setReviewsPaused] = useState(false);
+
+  // Mini seção "Indique e Ganhe": animação de palavras
+  const miniWords = ["Ganhe", "Lucre", "Junte"] as const;
+  const [miniWordIndex, setMiniWordIndex] = useState(0);
+  useEffect(() => {
+    const total = miniWords.length;
+    const id = setInterval(
+      () => setMiniWordIndex((prev) => (prev + 1) % total),
+      3000
+    );
+    return () => clearInterval(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (USE_STATIC_REVIEWS) return; // pular busca quando usando imagens
@@ -79,6 +92,8 @@ export default function Home() {
           <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-brand-500/20 dark:bg-brand-500/30 blur-3xl" />
           <div className="absolute -bottom-24 -right-24 h-80 w-80 rounded-full bg-cyan-500/10 dark:bg-cyan-500/20 blur-3xl" />
         </div>
+  {/* Fade de base para evitar linha de partículas na junção das seções */}
+  <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-b from-transparent to-neutral-50 dark:to-neutral-950 z-10" />
         <div className="relative z-20 container grid md:grid-cols-2 gap-10 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -117,7 +132,7 @@ export default function Home() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-            className="aspect-[4/3] md:aspect-video rounded-2xl border border-neutral-300 dark:border-white/10 bg-neutral-100 dark:bg-black relative overflow-hidden"
+            className="aspect-[4/3] md:aspect-video rounded-2xl border border-neutral-300 dark:border-white/10 bg-neutral-100 dark:bg-black relative overflow-hidden transition-shadow duration-300 hover:shadow-lg hover:border-neutral-400 dark:hover:border-white/20"
           >
             {/* Widget de teste de velocidade */}
             {/* Preferencialmente use o Speedtest Custom da Ookla, se você tiver a URL do seu tenant:
@@ -132,6 +147,134 @@ export default function Home() {
                 sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
                 referrerPolicy="no-referrer-when-downgrade"
               />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Mini seção: Indique e Ganhe */}
+      <section className="section">
+        <div className="container">
+          <motion.h2
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-2xl md:text-3xl font-semibold text-neutral-900 dark:text-white text-center"
+          >
+            <div className="flex items-baseline justify-center">
+              <span className="mr-2">Indique e</span>
+              <div className="relative text-brand-500 dark:text-brand-400 overflow-hidden min-w-[110px] md:min-w-[130px] flex">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={miniWordIndex}
+                    initial={{ y: "100%", opacity: 0 }}
+                    animate={{ y: "0%", opacity: 1 }}
+                    exit={{ y: "-100%", opacity: 0 }}
+                    transition={{ duration: 0.7, ease: [0.4, 0.0, 0.2, 1] }}
+                    className="absolute left-0 whitespace-nowrap"
+                  >
+                    {miniWords[miniWordIndex]}
+                  </motion.span>
+                </AnimatePresence>
+                <span className="invisible">Junte</span>
+              </div>
+            </div>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.05 }}
+            className="mt-2 text-neutral-600 dark:text-white/80 text-center max-w-2xl mx-auto"
+          >
+            Compartilhe a melhor internet fibra óptica com amigos e receba
+            desconto na sua próxima fatura. Simples assim.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mt-8 relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-50/70 via-brand-100/40 to-brand-200/20 dark:from-brand-600/20 dark:via-brand-500/20 dark:to-brand-400/10 border border-brand-200/40 dark:border-brand-300/20"
+          >
+            <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-brand-200/30 via-transparent to-transparent dark:from-brand-500/30" />
+
+            <div className="relative p-6 md:p-8">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                {/* Passos resumidos */}
+                <div>
+                  <ul className="space-y-4">
+                    {[
+                      {
+                        n: 1,
+                        t: "Indique um amigo",
+                        d: "Compartilhe nossos planos com amigos e familiares.",
+                      },
+                      {
+                        n: 2,
+                        t: "Ele contrata o serviço",
+                        d: "Seu amigo assina qualquer um dos nossos planos.",
+                      },
+                      {
+                        n: 3,
+                        t: "Vocês ganham desconto",
+                        d: "Ambos recebem desconto na próxima fatura.",
+                      },
+                    ].map((s) => (
+                      <li key={s.n} className="flex items-start gap-3">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-brand-500 flex items-center justify-center text-white font-bold text-sm">
+                          {s.n}
+                        </div>
+                        <div>
+                          <h3 className="font-semibold text-neutral-900 dark:text-white">
+                            {s.t}
+                          </h3>
+                          <p className="text-sm text-neutral-600 dark:text-white/80">
+                            {s.d}
+                          </p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <a
+                      href="https://wa.me/5567993259746?text=Olá! Gostaria de saber mais sobre o programa Indique e Ganhe da Net7 Tecnologia."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-700 text-white font-medium py-2.5 px-5 rounded-full transition-colors shadow"
+                    >
+                      Começar a indicar
+                    </a>
+                    <Link
+                      to="/indique-ganhe"
+                      className="inline-flex items-center justify-center gap-2 border border-neutral-300 dark:border-white/10 bg-white/70 dark:bg-white/5 hover:bg-white dark:hover:bg-white/10 text-neutral-900 dark:text-white font-medium py-2.5 px-5 rounded-full transition-colors"
+                    >
+                      Saiba mais
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Destaque de benefício */}
+                <div className="text-center">
+                  <div className="relative mx-auto max-w-sm">
+                    <div className="absolute inset-0 bg-gradient-to-r from-brand-400 to-brand-600 rounded-3xl blur-3xl opacity-25"></div>
+                    <div className="relative rounded-3xl p-8 bg-gradient-to-br from-brand-500 to-brand-700 text-white">
+                      <div className="text-5xl font-bold">R$</div>
+                      <div className="text-3xl md:text-4xl font-bold mt-1">
+                        50,00
+                      </div>
+                      <div className="mt-2 text-sm opacity-90">de desconto</div>
+                      <div className="text-xs opacity-75">
+                        na próxima fatura
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
