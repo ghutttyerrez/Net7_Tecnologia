@@ -73,13 +73,13 @@ export default function Home() {
         title="Início"
         description="Internet rápida e estável com suporte humano. Conheça os planos da Link Internet."
       />
-      <section className="relative overflow-hidden section">
+      <section className="relative overflow-hidden section isolate">
         <HeroParticles />
-        <div className="absolute inset-0 z-[-1]">
+        <div className="absolute inset-0 -z-10">
           <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-brand-500/20 dark:bg-brand-500/30 blur-3xl" />
           <div className="absolute -bottom-24 -right-24 h-80 w-80 rounded-full bg-cyan-500/10 dark:bg-cyan-500/20 blur-3xl" />
         </div>
-        <div className="relative z-10 container grid md:grid-cols-2 gap-10 items-center">
+        <div className="relative z-20 container grid md:grid-cols-2 gap-10 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

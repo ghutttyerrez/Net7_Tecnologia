@@ -27,9 +27,6 @@ export default function ReviewImage({
 
     const tryLoadImage = () => {
       if (currentFormatIndex >= formats.length) {
-        console.log(
-          `Falha ao carregar review${reviewNumber} em todos os formatos`
-        );
         setHasError(true);
         setIsLoading(false);
         onError?.();
@@ -37,19 +34,17 @@ export default function ReviewImage({
       }
 
       const url = `/reviews/review${reviewNumber}.${formats[currentFormatIndex]}`;
-      console.log(`Tentando carregar: ${url}`);
+      // tenta próximos formatos em caso de erro
 
       const img = new Image();
 
       img.onload = () => {
-        console.log(`✅ Sucesso ao carregar: ${url}`);
         setImageSrc(url);
         setIsLoading(false);
         setHasError(false);
       };
 
       img.onerror = () => {
-        console.log(`❌ Erro ao carregar: ${url}`);
         currentFormatIndex++;
         tryLoadImage();
       };
@@ -88,13 +83,10 @@ export default function ReviewImage({
       src={imageSrc}
       alt={alt || `Avaliação do Google ${reviewNumber}`}
       className={`${className} select-none transition-opacity duration-500 ease-in-out`}
+      loading="lazy"
       onError={() => {
-        console.log(`Erro na tag img para: ${imageSrc}`);
         setHasError(true);
         onError?.();
-      }}
-      onLoad={() => {
-        console.log(`Imagem carregada com sucesso: ${imageSrc}`);
       }}
     />
   );

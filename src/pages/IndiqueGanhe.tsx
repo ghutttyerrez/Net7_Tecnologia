@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import SEO from "@/components/SEO";
 
 const words = ["Ganhe", "Lucre", "Junte"];
 
@@ -9,12 +10,15 @@ export default function IndiqueGanhe() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentWordIndex((prev) => (prev + 1) % words.length);
-    }, 3000); // Muda a palavra a cada 3 segundos
-
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
   return (
     <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950 pt-20 transition-colors duration-300">
+      <SEO
+        title="Indique e Ganhe"
+        description="Indique amigos para a Net7 Tecnologia e ganhe descontos na sua fatura. Sem limite de indicações."
+      />
       <div className="container mx-auto px-4 py-12">
         {/* Header */}
         <motion.div
@@ -30,18 +34,9 @@ export default function IndiqueGanhe() {
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={currentWordIndex}
-                    initial={{
-                      y: "100%",
-                      opacity: 0,
-                    }}
-                    animate={{
-                      y: "0%",
-                      opacity: 1,
-                    }}
-                    exit={{
-                      y: "-100%",
-                      opacity: 0,
-                    }}
+                    initial={{ y: "100%", opacity: 0 }}
+                    animate={{ y: "0%", opacity: 1 }}
+                    exit={{ y: "-100%", opacity: 0 }}
                     transition={{
                       duration: 0.7,
                       ease: [0.4, 0.0, 0.2, 1],

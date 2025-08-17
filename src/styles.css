@@ -12,7 +12,7 @@ body {
 }
 
 .section {
-  @apply py-16 md:py-24;
+  @apply relative py-16 md:py-24;
 }
 .container {
   @apply max-w-6xl mx-auto px-4;

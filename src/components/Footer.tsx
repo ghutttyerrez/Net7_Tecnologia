@@ -40,13 +40,19 @@ export default function Footer() {
                 </li>
                 <li>
                   Suporte:{" "}
-                  <a href="mailto:suporte@net7.com" className="underline hover:text-neutral-900 dark:hover:text-white">
+                  <a
+                    href="mailto:suporte@net7.com"
+                    className="underline hover:text-neutral-900 dark:hover:text-white"
+                  >
                     suporte@net7.com
                   </a>
                 </li>
                 <li>
                   Comercial:{" "}
-                  <a href="mailto:vendas@net7.com" className="underline hover:text-neutral-900 dark:hover:text-white">
+                  <a
+                    href="mailto:vendas@net7.com"
+                    className="underline hover:text-neutral-900 dark:hover:text-white"
+                  >
                     vendas@net7.com
                   </a>
                 </li>

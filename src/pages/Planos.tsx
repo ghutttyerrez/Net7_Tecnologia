@@ -80,34 +80,8 @@ export default function Planos() {
               src="/hero/hero-plans-main.jpg"
               alt="Pessoa usando internet fibra óptica"
               className="absolute inset-0 w-full h-full object-cover"
-              onError={(e) => {
-                // Se a imagem não carregar, mostra o placeholder
-                const target = e.target as HTMLImageElement;
-                target.style.display = "none";
-                const placeholder = target.parentElement
-                  ?.nextElementSibling as HTMLElement;
-                if (placeholder) placeholder.style.display = "flex";
-              }}
             />
           </picture>
-
-          {/* Fallback placeholder (oculto por padrão) */}
-          <div className="w-full h-full bg-gradient-to-br from-brand-500/20 to-cyan-500/30 hidden items-center justify-center">
-            <div className="text-center text-white/30 px-4">
-              <p className="text-lg">📸 Adicione suas imagens hero aqui</p>
-              <p className="text-sm mt-2">
-                Veja /public/hero/README.md para instruções
-              </p>
-              <div className="mt-4 p-4 bg-black/20 rounded-lg text-xs">
-                <p>
-                  <strong>Necessário:</strong>
-                </p>
-                <p>• hero-plans-main.jpg (1920x1080)</p>
-                <p>• hero-plans-tablet.jpg (1200x800)</p>
-                <p>• hero-plans-mobile.jpg (800x600)</p>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Content */}
