@@ -92,8 +92,8 @@ export default function Home() {
           <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-brand-500/20 dark:bg-brand-500/30 blur-3xl" />
           <div className="absolute -bottom-24 -right-24 h-80 w-80 rounded-full bg-cyan-500/10 dark:bg-cyan-500/20 blur-3xl" />
         </div>
-  {/* Fade de base para evitar linha de partículas na junção das seções */}
-  <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-b from-transparent to-neutral-50 dark:to-neutral-950 z-10" />
+        {/* Fade de base para evitar linha de partículas na junção das seções */}
+        <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-b from-transparent to-neutral-50 dark:to-neutral-950 z-10" />
         <div className="relative z-20 container grid md:grid-cols-2 gap-10 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

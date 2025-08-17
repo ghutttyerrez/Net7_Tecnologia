@@ -22,7 +22,7 @@ export default function Footer() {
               suporte de verdade.
             </p>
           </div>
-          <div className="w-full md:w-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="w-full md:w-auto grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div className="min-w-0">
               <p className="text-neutral-900 dark:text-white mb-2">Contato</p>
               <ul className="space-y-1 text-sm md:text-base break-words">
@@ -65,6 +65,35 @@ export default function Footer() {
                 <br />
                 Sidrolândia - MS
               </p>
+            </div>
+            <div className="min-w-0">
+              <p className="text-neutral-900 dark:text-white mb-2">Links</p>
+              <ul className="space-y-1 text-sm md:text-base break-words">
+                <li>
+                  <a
+                    href="/faq"
+                    className="underline hover:text-neutral-900 dark:hover:text-white transition-colors"
+                  >
+                    FAQ
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/indique-ganhe"
+                    className="underline hover:text-neutral-900 dark:hover:text-white transition-colors"
+                  >
+                    Indique e Ganhe
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/planos"
+                    className="underline hover:text-neutral-900 dark:hover:text-white transition-colors"
+                  >
+                    Planos
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

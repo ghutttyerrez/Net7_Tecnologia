@@ -5,6 +5,7 @@ const Planos = lazy(() => import("@pages/Planos"));
 const Suporte = lazy(() => import("@pages/Suporte"));
 const AppMinhaNet7 = lazy(() => import("@pages/AppMinhaNet7"));
 const IndiqueGanhe = lazy(() => import("@pages/IndiqueGanhe"));
+const FAQ = lazy(() => import("@pages/FAQ"));
 import Navbar from "@components/Navbar";
 import Footer from "@components/Footer";
 import { ThemeProvider } from "@/contexts/ThemeContext";
@@ -24,6 +25,7 @@ export default function App() {
               <Route path="/suporte" element={<Suporte />} />
               <Route path="/minha-link" element={<AppMinhaNet7 />} />
               <Route path="/indique-ganhe" element={<IndiqueGanhe />} />
+              <Route path="/faq" element={<FAQ />} />
             </Routes>
           </Suspense>
         </main>
