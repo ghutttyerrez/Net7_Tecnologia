@@ -4,8 +4,12 @@ import { Link } from "react-router-dom";
 import HeroParticles from "@components/HeroParticles";
 import SEO from "@components/SEO";
 import ReviewImage from "@components/ReviewImage";
+import { useTheme } from "@/hooks/useTheme";
 
 export default function Home() {
+  const { theme } = useTheme();
+  const widgetFilter =
+    theme === "light" ? "invert(1) hue-rotate(180deg)" : "none";
   // Modo estático: usa imagens de reviews no /public e não consome API
   const USE_STATIC_REVIEWS = true;
   const [reviews, setReviews] = useState<{
@@ -146,6 +150,7 @@ export default function Home() {
                 allow="autoplay; fullscreen; picture-in-picture"
                 sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
                 referrerPolicy="no-referrer-when-downgrade"
+                style={{ filter: widgetFilter, transition: "filter 0.3s" }}
               />
             </div>
           </motion.div>

@@ -29,35 +29,23 @@ function HeroParticles() {
     window.addEventListener("resize", onResize);
     resize();
 
-    // Partículas animadas (reforço de visibilidade no tema claro)
-    const COUNT = theme === "light" ? 110 : 72;
+    // Partículas animadas (modo light otimizado para performance)
+    const COUNT = 72;
     const particles = Array.from({ length: COUNT }, () => ({
       x: Math.random() * canvas.clientWidth,
       y: Math.random() * canvas.clientHeight,
       vx: (Math.random() - 0.5) * 0.45,
       vy: (Math.random() - 0.5) * 0.45,
-      r:
-        (theme === "light" ? 1.2 : 1) +
-        Math.random() * (theme === "light" ? 2.8 : 2.2),
+      r: 1 + Math.random() * 2.2,
     }));
 
     function step() {
       ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
 
-      // Cores adaptativas por tema (mais fortes para melhor visibilidade)
-      const fill =
-        theme === "light"
-          ? "rgba(37, 99, 235, 0.75)"
-          : "rgba(96, 165, 250, 0.8)";
-
-      // glow sutil somente no tema claro para dar mais presença
-      if (theme === "light") {
-        ctx.shadowColor = "rgba(37, 99, 235, 0.35)";
-        ctx.shadowBlur = 6;
-      } else {
-        ctx.shadowColor = "transparent";
-        ctx.shadowBlur = 0;
-      }
+      // Cor única para ambos os temas, sem glow
+      const fill = "rgba(96, 165, 250, 0.8)";
+      ctx.shadowColor = "transparent";
+      ctx.shadowBlur = 0;
 
       ctx.fillStyle = fill;
 
@@ -72,32 +60,7 @@ function HeroParticles() {
         ctx.fill();
       }
 
-      // linhas de conexão sutis no tema claro (melhora percepção sem poluir)
-      if (theme === "light") {
-        ctx.save();
-        ctx.lineWidth = 0.6;
-        ctx.strokeStyle = "rgba(37, 99, 235, 0.18)";
-        for (let i = 0; i < particles.length; i++) {
-          for (let j = i + 1; j < particles.length; j++) {
-            const a = particles[i];
-            const b = particles[j];
-            const dx = a.x - b.x;
-            const dy = a.y - b.y;
-            const d2 = dx * dx + dy * dy;
-            if (d2 < 120 * 120) {
-              const alpha = 1 - Math.sqrt(d2) / 120;
-              if (alpha > 0.05) {
-                ctx.globalAlpha = alpha * 0.6;
-                ctx.beginPath();
-                ctx.moveTo(a.x, a.y);
-                ctx.lineTo(b.x, b.y);
-                ctx.stroke();
-              }
-            }
-          }
-        }
-        ctx.restore();
-      }
+      // ...sem linhas de conexão para ambos os temas...
 
       raf = requestAnimationFrame(step);
     }
