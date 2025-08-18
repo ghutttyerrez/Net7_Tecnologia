@@ -21,7 +21,8 @@ export default function ReviewImage({
     setIsLoading(true);
     setHasError(false);
 
-    // Testamos JPG primeiro já que sabemos que existem
+    // Aqui primeiro testamos JPG primeiro já que sabemos que existem no diretorio
+    // e depois tentamos PNG, WEBP e SVG.
     const formats = ["jpg", "png", "webp", "svg"];
     let currentFormatIndex = 0;
 

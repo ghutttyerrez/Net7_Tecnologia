@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 
+/* No começo pensei em colocar os preços nos cards mais estudando e vendo outros sites percebi que o foco é mais nas velocidades e recursos do que no preço em si. Então, mantive os preços como comentários para possível uso futuro, mas não exibi-los diretamente. */
+// Isso ajuda a manter o foco na performance e recursos dos planos, que é o mais importante para os usuários.
+
 const planos = [
   {
     nome: "Combo Mega",

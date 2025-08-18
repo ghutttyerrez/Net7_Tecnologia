@@ -1,8 +1,8 @@
 import { createContext } from "react";
 
-type Theme = "light" | "dark";
+export type Theme = "light" | "dark";
 
-interface ThemeContextType {
+export interface ThemeContextType {
   theme: Theme;
   toggleTheme: () => void;
 }
@@ -10,4 +10,3 @@ interface ThemeContextType {
 export const ThemeContext = createContext<ThemeContextType | undefined>(
   undefined
 );
-// ...apenas exportação do contexto e tipos, sem ThemeProvider...
