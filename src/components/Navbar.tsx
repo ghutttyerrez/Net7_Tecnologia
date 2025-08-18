@@ -119,7 +119,7 @@ export default function Navbar() {
             <ThemeToggle />
             {/* Instagram */}
             <a
-              href="https://instagram.com/SEU_PERFIL"
+              href="https://www.instagram.com/net7tecnologia"
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
